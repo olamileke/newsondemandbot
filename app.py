@@ -2,6 +2,7 @@ from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from endpoints import call_endpoint
 import os.path as path
+import os.environ as environ
 import logging
 import config
 import json
@@ -15,6 +16,7 @@ updater = Updater(
     token=config.bot_token, use_context=True)
 dispatcher = updater.dispatcher
 
+PORT = int(environ.get('PORT', 5000))
 
 # Handler Functions
 def start(update, context):
@@ -53,5 +55,5 @@ dispatcher.add_handler(get_handler)
 dispatcher.add_handler(unknown_handler)
 
 # Starting the bot
-updater.start_polling()
-updater.idle()
+updater.start_webhook(listen="0.0.0.0", port=int(PORT),url_path=config.bot_token)
+updater.bot.setWebhook('https://newsondemandbot.herokuapp.com/' + config.bot_token)
