@@ -5,5 +5,3 @@ venv
 # Pycache Folder
 __pycache__
 
-# configuration
-config.py
