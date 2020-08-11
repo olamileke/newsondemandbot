@@ -1,1 +1,2 @@
-Hi there! receive a news article from me on demand. Simply type /get. 
+Hi there! receive a news article from me on demand. Simply type /get.
+To see all articles I have sent you, type /history. To clear your articles, type /delete.
