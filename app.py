@@ -1,18 +1,20 @@
 from telegram import ParseMode
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 from endpoints import call_endpoint
-import os.path as path
+from os import path, environ
 import logging
 import config
-import json
 
 # Enable logging of errors
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
+# Loading the relevant values into the environment
+config.set()
+
 # Creating the relevant variables
 updater = Updater(
-    token=config.bot_token, use_context=True)
+    token=environ.get("BOT_TOKEN"), use_context=True)
 dispatcher = updater.dispatcher
 
 # Handler Functions

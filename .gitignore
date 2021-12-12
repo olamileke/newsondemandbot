@@ -5,3 +5,6 @@ venv
 # Pycache Folder
 __pycache__
 
+# Environment Variables
+.env
+
