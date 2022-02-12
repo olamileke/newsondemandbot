@@ -13,7 +13,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 config.set()
 
 # Creating the relevant variables
-token = os.environ.get("BOT_TOKEN")
+token = environ.get("BOT_TOKEN")
 updater = Updater(
     token=token, use_context=True)
 dispatcher = updater.dispatcher
@@ -55,7 +55,7 @@ dispatcher.add_handler(get_handler)
 dispatcher.add_handler(unknown_handler)
 
 # Starting the bot
-updater.start_webhook(listen=os.environ.get("BOT_HOST"), port=os.environ.get("BOT_PORT"), url_path=token)
-updater.bot.set_webhook(url="{0}{1}".format(os.environ.get("BOT_URL"), token))
+updater.start_webhook(listen=environ.get("BOT_HOST"), port=environ.get("BOT_PORT"), url_path=token)
+updater.bot.set_webhook(url="{0}{1}".format(environ.get("BOT_URL"), token))
 
 updater.idle()
